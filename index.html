@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>KleineLars Tools</title>
-  <link rel="icon" type="image/x-icon" href="logo.png" />
+  <link rel="icon" type="image/png" href="logo.png" />
   <style>
     body {
       margin: 0;
@@ -13,7 +13,6 @@
       color: white;
     }
 
-    /* Top navbar */
     .navbar {
       background-color: #0d0d0d;
       display: flex;
@@ -92,6 +91,23 @@
       cursor: not-allowed;
     }
 
+    .slogan {
+      margin-top: 80px;
+      font-size: 1.1em;
+      font-weight: bold;
+    }
+
+    .lightning {
+      color: #bb86fc;
+      animation: lightning-flash 4s infinite;
+    }
+
+    @keyframes lightning-flash {
+      0%, 97%, 100% { opacity: 1; }
+      98% { opacity: 0.2; text-shadow: 0 0 10px #bb86fc; }
+      99% { opacity: 1; text-shadow: 0 0 20px #ffffff; }
+    }
+
     footer {
       margin-top: 60px;
       text-align: center;
@@ -129,6 +145,8 @@
         <a class="tool-button disabled" title="Coming soon!">SEB Tool 🔒</a>
       </div>
     </div>
+
+    <p class="slogan lightning">⚡ Hack your knowledge. Powered by KleineLars.</p>
   </main>
 
   <footer>
