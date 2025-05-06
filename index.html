@@ -6,7 +6,7 @@
   <title>KleineLars Tools</title>
   <link rel="icon" type="image/png" href="logo.png" />
   <style>
-    /* Video background */
+    /* Background video styling */
     .video-background {
       position: fixed;
       top: 0;
@@ -14,28 +14,23 @@
       z-index: -1;
       width: 100%;
       height: 100%;
-      overflow: hidden;
-    }
-
-    .video-background iframe {
-      width: 100vw;
-      height: 56.25vw; /* 16:9 aspect ratio */
-      min-height: 100vh;
-      min-width: 177.77vh; /* 16:9 aspect ratio */
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
+      object-fit: cover;
     }
 
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: white;
+      background-color: black;
     }
 
-    /* Top navbar */
+    .overlay {
+      position: relative;
+      z-index: 1;
+      background-color: rgba(0, 0, 0, 0.6);
+      min-height: 100vh;
+    }
+
     .navbar {
       background-color: rgba(13, 13, 13, 0.9);
       display: flex;
@@ -72,7 +67,6 @@
     main {
       padding: 60px 20px;
       text-align: center;
-      background-color: rgba(0, 0, 0, 0.6);
     }
 
     .description {
@@ -132,50 +126,50 @@
 </head>
 <body>
 
-  <div class="video-background">
-    <iframe src="https://www.youtube.com/embed/6TPoNfjKFfw?autoplay=1&mute=1&controls=0&loop=1&playlist=6TPoNfjKFfw&modestbranding=1&showinfo=0&rel=0"
-      frameborder="0"
-      allow="autoplay"
-      allowfullscreen>
-    </iframe>
-  </div>
+  <!-- Local video background -->
+  <video class="video-background" autoplay muted loop playsinline>
+    <source src="background.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 
-  <div class="navbar">
-    <img src="logo.png" alt="KleineLars Logo">
-    <div class="nav-links">
-      <a href="https://github.com/KleineLars" target="_blank">GitHub</a>
-      <a href="https://discord.com" target="_blank">Discord</a>
-      <a href="https://www.youtube.com/@Kleine_Lars" target="_blank">YouTube</a>
-    </div>
-  </div>
-
-  <main>
-    <h1 style="color: #bb86fc;">KleineLars Tools</h1>
-    <p class="description">
-      A collection of powerful browser-based tools for quizzes and learning environments, developed for fun and educational exploration.
-    </p>
-
-    <div class="button-container">
-      <a href="https://github.com/KleineLars/Blooket-Cheat/tree/main" class="tool-button" target="_blank">Blooket Tool</a>
-      <a href="https://kleinelars.github.io/KLKahoot/" class="tool-button" target="_blank">Kahoot Tool</a>
-    </div>
-
-    <div class="coming-soon">
-      <h2 style="color:#bb86fc;">Coming Soon</h2>
-      <div class="button-container">
-        <a class="tool-button disabled" title="Coming soon!">Quizlet Tool 🔒</a>
-        <a class="tool-button disabled" title="Coming soon!">SEB Tool 🔒</a>
+  <div class="overlay">
+    <div class="navbar">
+      <img src="logo.png" alt="KleineLars Logo">
+      <div class="nav-links">
+        <a href="https://github.com/KleineLars" target="_blank">GitHub</a>
+        <a href="https://discord.com" target="_blank">Discord</a>
+        <a href="https://www.youtube.com/@Kleine_Lars" target="_blank">YouTube</a>
       </div>
     </div>
 
-    <div class="slogan">
-      ⚡ Lightning-fast tools for every quiz battle!
-    </div>
-  </main>
+    <main>
+      <h1 style="color: #bb86fc;">KleineLars Tools</h1>
+      <p class="description">
+        A collection of powerful browser-based tools for quizzes and learning environments, developed for fun and educational exploration.
+      </p>
 
-  <footer>
-    &copy; 2025 KleineLars. All rights reserved.
-  </footer>
+      <div class="button-container">
+        <a href="https://github.com/KleineLars/Blooket-Cheat/tree/main" class="tool-button" target="_blank">Blooket Tool</a>
+        <a href="https://kleinelars.github.io/KLKahoot/" class="tool-button" target="_blank">Kahoot Tool</a>
+      </div>
+
+      <div class="coming-soon">
+        <h2 style="color:#bb86fc;">Coming Soon</h2>
+        <div class="button-container">
+          <a class="tool-button disabled" title="Coming soon!">Quizlet Tool 🔒</a>
+          <a class="tool-button disabled" title="Coming soon!">SEB Tool 🔒</a>
+        </div>
+      </div>
+
+      <div class="slogan">
+        ⚡ Lightning-fast tools for every quiz battle!
+      </div>
+    </main>
+
+    <footer>
+      &copy; 2025 KleineLars. All rights reserved.
+    </footer>
+  </div>
 
 </body>
 </html>
