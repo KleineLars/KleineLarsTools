@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KleineLars Tools</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: radial-gradient(circle at center, #2a003f 0%, #000000 100%);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: #0d0d0d;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid #7700ff;
+    }
+
+    header h1 {
+      color: #bb86fc;
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    main {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .description {
+      font-size: 1.2em;
+      max-width: 600px;
+      margin: 0 auto 40px auto;
+      color: #ccc;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .tool-button {
+      background-color: transparent;
+      border: 2px solid #bb86fc;
+      color: #bb86fc;
+      padding: 15px 30px;
+      font-size: 1em;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .tool-button:hover {
+      background-color: #bb86fc;
+      color: black;
+      box-shadow: 0 0 10px #bb86fc;
+    }
+
+    .coming-soon {
+      margin-top: 60px;
+    }
+
+    .disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>KleineLars Tools</h1>
+  </header>
+  <main>
+    <p class="description">
+      A collection of powerful browser-based tools for quizzes and learning environments, developed for fun and educational exploration.
+    </p>
+
+    <div class="button-container">
+      <a href="https://github.com/KleineLars/Blooket-Cheat/tree/main" class="tool-button" target="_blank">Blooket Tool</a>
+      <a href="https://kleinelars.github.io/KLKahoot/" class="tool-button" target="_blank">Kahoot Tool</a>
+    </div>
+
+    <div class="coming-soon">
+      <h2 style="color:#bb86fc;">Coming Soon</h2>
+      <div class="button-container">
+        <a class="tool-button disabled">Quizlet Tool (Coming Soon)</a>
+        <a class="tool-button disabled">SEB Tool (Coming Soon)</a>
+      </div>
+    </div>
+  </main>
+  <footer>
+    &copy; 2025 KleineLars. All rights reserved.
+  </footer>
+</body>
+</html>
