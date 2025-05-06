@@ -10,20 +10,40 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: radial-gradient(circle at center, #2a003f 0%, #000000 100%);
       color: white;
-      overflow-x: hidden;
     }
 
-    header {
+    /* Top navbar */
+    .navbar {
       background-color: #0d0d0d;
-      padding: 20px;
-      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
       border-bottom: 2px solid #7700ff;
     }
 
-    header h1 {
+    .navbar img {
+      height: 40px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
+    }
+
+    .nav-links a:hover {
       color: #bb86fc;
-      margin: 0;
-      font-size: 2.5em;
+      border-color: #bb86fc;
     }
 
     main {
@@ -80,10 +100,18 @@
   </style>
 </head>
 <body>
-  <header>
-    <h1>KleineLars Tools</h1>
-  </header>
+
+  <div class="navbar">
+    <img src="logo.png" alt="KleineLars Logo">
+    <div class="nav-links">
+      <a href="https://github.com/KleineLars" target="_blank">GitHub</a>
+      <a href="https://discord.com" target="_blank">Discord</a>
+      <a href="https://www.youtube.com/@Kleine_Lars" target="_blank">YouTube</a>
+    </div>
+  </div>
+
   <main>
+    <h1 style="color: #bb86fc;">KleineLars Tools</h1>
     <p class="description">
       A collection of powerful browser-based tools for quizzes and learning environments, developed for fun and educational exploration.
     </p>
@@ -96,13 +124,15 @@
     <div class="coming-soon">
       <h2 style="color:#bb86fc;">Coming Soon</h2>
       <div class="button-container">
-        <a class="tool-button disabled">Quizlet Tool</a>
-        <a class="tool-button disabled">SEB Tool</a>
+        <a class="tool-button disabled" title="Coming soon!">Quizlet Tool 🔒</a>
+        <a class="tool-button disabled" title="Coming soon!">SEB Tool 🔒</a>
       </div>
     </div>
   </main>
+
   <footer>
     &copy; 2025 KleineLars. All rights reserved.
   </footer>
+
 </body>
 </html>
