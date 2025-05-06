@@ -6,15 +6,38 @@
   <title>KleineLars Tools</title>
   <link rel="icon" type="image/png" href="logo.png" />
   <style>
+    /* Video background */
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .video-background iframe {
+      width: 100vw;
+      height: 56.25vw; /* 16:9 aspect ratio */
+      min-height: 100vh;
+      min-width: 177.77vh; /* 16:9 aspect ratio */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: radial-gradient(circle at center, #2a003f 0%, #000000 100%);
       color: white;
     }
 
+    /* Top navbar */
     .navbar {
-      background-color: #0d0d0d;
+      background-color: rgba(13, 13, 13, 0.9);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -49,6 +72,7 @@
     main {
       padding: 60px 20px;
       text-align: center;
+      background-color: rgba(0, 0, 0, 0.6);
     }
 
     .description {
@@ -92,24 +116,14 @@
     }
 
     .slogan {
-      margin-top: 80px;
+      margin-top: 60px;
       font-size: 1.1em;
-      font-weight: bold;
-    }
-
-    .lightning {
       color: #bb86fc;
-      animation: lightning-flash 4s infinite;
-    }
-
-    @keyframes lightning-flash {
-      0%, 97%, 100% { opacity: 1; }
-      98% { opacity: 0.2; text-shadow: 0 0 10px #bb86fc; }
-      99% { opacity: 1; text-shadow: 0 0 20px #ffffff; }
+      font-style: italic;
     }
 
     footer {
-      margin-top: 60px;
+      margin-top: 40px;
       text-align: center;
       font-size: 0.9em;
       color: #777;
@@ -117,6 +131,14 @@
   </style>
 </head>
 <body>
+
+  <div class="video-background">
+    <iframe src="https://www.youtube.com/embed/6TPoNfjKFfw?autoplay=1&mute=1&controls=0&loop=1&playlist=6TPoNfjKFfw&modestbranding=1&showinfo=0&rel=0"
+      frameborder="0"
+      allow="autoplay"
+      allowfullscreen>
+    </iframe>
+  </div>
 
   <div class="navbar">
     <img src="logo.png" alt="KleineLars Logo">
@@ -146,7 +168,9 @@
       </div>
     </div>
 
-    <p class="slogan lightning">⚡ Hack your knowledge. Powered by KleineLars.</p>
+    <div class="slogan">
+      ⚡ Lightning-fast tools for every quiz battle!
+    </div>
   </main>
 
   <footer>
