@@ -12,127 +12,48 @@
       color: white;
     }
 
-    /* Top navbar */
-    .navbar {
+    header {
       background-color: #0d0d0d;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       padding: 10px 20px;
       border-bottom: 2px solid #7700ff;
     }
 
-    .navbar img {
-      height: 40px;
+    .logo {
+      width: 140px;
+      height: auto;
     }
 
-    .nav-links {
+    nav {
       display: flex;
       gap: 20px;
     }
 
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      padding: 8px 16px;
-      border-radius: 6px;
-      transition: all 0.3s ease;
-      border: 1px solid transparent;
-    }
-
-    .nav-links a:hover {
+    nav a {
       color: #bb86fc;
-      border-color: #bb86fc;
-    }
-
-    main {
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    .description {
-      font-size: 1.2em;
-      max-width: 600px;
-      margin: 0 auto 40px auto;
-      color: #ccc;
-    }
-
-    .button-container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .tool-button {
-      background-color: transparent;
-      border: 2px solid #bb86fc;
-      color: #bb86fc;
-      padding: 15px 30px;
-      font-size: 1em;
       text-decoration: none;
-      border-radius: 8px;
-      transition: all 0.3s ease;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background 0.3s;
     }
 
-    .tool-button:hover {
+    nav a:hover {
       background-color: #bb86fc;
       color: black;
-      box-shadow: 0 0 10px #bb86fc;
-    }
-
-    .coming-soon {
-      margin-top: 60px;
-    }
-
-    .disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-
-    footer {
-      margin-top: 60px;
-      text-align: center;
-      font-size: 0.9em;
-      color: #777;
     }
   </style>
 </head>
 <body>
-
-  <div class="navbar">
-    <img src="logo.png" alt="KleineLars Logo">
-    <div class="nav-links">
+  <header>
+    <img src="c3afc05b-8815-4c1b-8bd1-d14b7c839c40.png" alt="KleineLars Tools Logo" class="logo" />
+    <nav>
       <a href="https://github.com/KleineLars" target="_blank">GitHub</a>
       <a href="https://discord.com" target="_blank">Discord</a>
       <a href="https://www.youtube.com/@Kleine_Lars" target="_blank">YouTube</a>
-    </div>
-  </div>
-
-  <main>
-    <h1 style="color: #bb86fc;">KleineLars Tools</h1>
-    <p class="description">
-      A collection of powerful browser-based tools for quizzes and learning environments, developed for fun and educational exploration.
-    </p>
-
-    <div class="button-container">
-      <a href="https://github.com/KleineLars/Blooket-Cheat/tree/main" class="tool-button" target="_blank">Blooket Tool</a>
-      <a href="https://kleinelars.github.io/KLKahoot/" class="tool-button" target="_blank">Kahoot Tool</a>
-    </div>
-
-    <div class="coming-soon">
-      <h2 style="color:#bb86fc;">Coming Soon</h2>
-      <div class="button-container">
-        <a class="tool-button disabled" title="Coming soon!">Quizlet Tool 🔒</a>
-        <a class="tool-button disabled" title="Coming soon!">SEB Tool 🔒</a>
-      </div>
-    </div>
-  </main>
-
-  <footer>
-    &copy; 2025 KleineLars. All rights reserved.
-  </footer>
-
+    </nav>
+  </header>
 </body>
 </html>
