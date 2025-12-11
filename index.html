@@ -107,6 +107,7 @@
     .disabled {
       opacity: 0.5;
       cursor: not-allowed;
+      pointer-events: none;
     }
 
     .slogan {
@@ -137,7 +138,7 @@
       <img src="logo.png" alt="KleineLars Logo">
       <div class="nav-links">
         <a href="https://donate.stripe.com/28ocO87WL03456UaEH" target="_blank">Donate</a>
-        <a href="https://discord.gg/kjzfRaX8GK" target="_blank">Discord</a>
+        <a href="https://discord.com" target="_blank">Discord</a>
         <a href="https://www.youtube.com/@Kleine_Lars" target="_blank">YouTube</a>
       </div>
     </div>
@@ -157,7 +158,8 @@
       <div class="coming-soon">
         <h2 style="color:#bb86fc;">Coming Soon</h2>
         <div class="button-container">
-          <a class="tool-button disabled" title="Coming soon!">SEB Tool 🔒</a>
+          <!-- SEB TOOL BUTTON (will unlock at 19:00 on 11/12/2025) -->
+          <a id="seb-button" class="tool-button disabled" title="Coming soon!">SEB Tool 🔒</a>
         </div>
       </div>
 
@@ -170,6 +172,31 @@
       &copy; 2025 KleineLars. All rights reserved.
     </footer>
   </div>
+
+  <!-- TIMER SCRIPT HERE -->
+  <script>
+    // Datum + tijd waarop de SEB tool ontgrendelt: 11 december 2025 om 19:00
+    const unlockTime = new Date("2025-12-11T19:00:00");
+
+    function checkSEB() {
+      const now = new Date();
+      const sebButton = document.getElementById("seb-button");
+
+      if (now >= unlockTime) {
+        sebButton.classList.remove("disabled");
+        sebButton.removeAttribute("title");
+        sebButton.textContent = "SEB Tool ✔ Nieuw!";
+        sebButton.style.borderColor = "#00ffae";
+        sebButton.style.color = "#00ffae";
+
+        sebButton.href = "https://files.fm/u/s6dam5duff#/view/ndsf2htjrk";
+        sebButton.target = "_blank";
+      }
+    }
+
+    checkSEB();
+    setInterval(checkSEB, 4000);
+  </script>
 
 </body>
 </html>
