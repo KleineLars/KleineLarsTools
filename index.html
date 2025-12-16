@@ -1,116 +1,180 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KleineLars Tools</title>
   <link rel="icon" type="image/png" href="logo.png" />
   <style>
+    /* Globale variabelen voor consistentie */
+    :root {
+      --primary-color: #bb86fc; /* Paars */
+      --background-color: #121212; /* Donker Grijs/Zwart */
+      --text-color: #ffffff; /* Wit */
+      --hover-duration: 0.3s;
+    }
+
+    /* Body en typografie */
+    body {
+      background-color: var(--background-color);
+      color: var(--text-color);
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden; /* Voorkomt horizontale scrollbalk door animaties */
+    }
+
+    h1, h2 {
+      color: var(--primary-color);
+      margin: 0.5em 0;
+    }
+
+    /* Achtergrond video styling */
     .video-background {
       position: fixed;
       top: 0;
       left: 0;
-      z-index: -1;
       width: 100%;
       height: 100%;
       object-fit: cover;
+      z-index: -2;
+      filter: brightness(0.6); /* Maak de video donkerder */
     }
 
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: white;
-      background-color: black;
+    /* Nieuwe overlay voor contrast en subtiele animatie */
+    .video-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(18, 18, 18, 0.4); /* Extra donkere overlay */
+      z-index: -1;
     }
 
-    .overlay {
-      position: relative;
-      z-index: 1;
-      background-color: rgba(0, 0, 0, 0.6);
-      min-height: 100vh;
+    /* Logo */
+    .logo {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 20px;
+      transition: transform 0.5s ease-in-out;
+    }
+    .logo:hover {
+      transform: rotate(10deg) scale(1.05); /* Subtiele draai en zoom op hover */
     }
 
-    .navbar {
-      background-color: rgba(13, 13, 13, 0.9);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      border-bottom: 2px solid #7700ff;
+    /* Hoofdcontainer styling */
+    .container {
+      padding: 20px;
+      z-index: 10;
+      max-width: 90%;
+      /* Nieuwe aankomstanimatie */
+      animation: fadeIn 1s ease-out forwards;
+      opacity: 0; /* Begint verborgen */
+      animation-delay: 0.2s; /* Lichte vertraging voor de video */
     }
 
-    .navbar img {
-      height: 40px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 20px;
-    }
-
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      padding: 8px 16px;
-      border-radius: 6px;
-      transition: all 0.3s ease;
-      border: 1px solid transparent;
-    }
-
-    .nav-links a:hover {
-      color: #bb86fc;
-      border-color: #bb86fc;
-    }
-
-    main {
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    .description {
-      font-size: 1.2em;
-      max-width: 600px;
-      margin: 0 auto 40px auto;
-      color: #ccc;
-    }
-
+    /* Animatie voor de knoppen zelf */
     .button-container {
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 20px;
+      margin-top: 30px;
     }
 
+    /* Stijl voor de individuele knop */
     .tool-button {
-      background-color: transparent;
-      border: 2px solid #bb86fc;
-      color: #bb86fc;
+      background-color: var(--background-color);
+      color: var(--primary-color);
       padding: 15px 30px;
-      font-size: 1em;
       text-decoration: none;
-      border-radius: 8px;
-      transition: all 0.3s ease;
+      border: 2px solid var(--primary-color);
+      border-radius: 5px;
+      font-size: 1.2em;
+      font-weight: bold;
+      box-shadow: 0 0 5px var(--primary-color);
+      
+      /* Belangrijk: soepele overgangen voor animaties */
+      transition: all var(--hover-duration) ease-in-out; 
+      
+      /* Initiële staat voor subtle pop-in */
+      transform: scale(1);
     }
 
+    /* Knoppen Hover Animatie */
     .tool-button:hover {
-      background-color: #bb86fc;
-      color: black;
-      box-shadow: 0 0 10px #bb86fc;
+      background-color: var(--primary-color);
+      color: var(--background-color);
+      transform: scale(1.08); /* Meer vergroten */
+      box-shadow: 0 0 25px var(--primary-color); /* Intensere, pulserende schaduw */
     }
 
+    /* 'Coming Soon' styling met animatie */
+    .coming-soon {
+      margin-top: 60px;
+      /* Puls animatie voor de gehele 'Coming Soon' sectie */
+      animation: pulse 2s infinite ease-in-out; 
+    }
+
+    /* Stijl voor de disabled knop (SEB Tool 🔒) */
+    .disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      background-color: rgba(187, 134, 252, 0.1); /* Lichte paarse achtergrond */
+      border-style: dashed; /* Maakt het visueel 'niet actief' */
+      pointer-events: none; /* Kan niet geklikt worden, maar de titel werkt */
+      transition: none; /* Geen hover animatie */
+      transform: none;
+    }
+
+    /* Slogan en Footer */
     .slogan {
       margin-top: 60px;
       font-size: 1.1em;
-      color: #bb86fc;
       font-style: italic;
+      color: var(--primary-color);
+      opacity: 0.9;
+      transition: opacity 0.5s;
+    }
+    .slogan:hover {
+      opacity: 1;
     }
 
-    footer {
-      margin-top: 40px;
-      text-align: center;
-      font-size: 0.9em;
-      color: #777;
+    /* Keyframe Definities */
+
+    /* 1. Hoofdinhoud Fade-in */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* 2. 'Coming Soon' Puls */
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(187, 134, 252, 0.4);
+      }
+      70% {
+        transform: scale(1.01);
+        box-shadow: 0 0 15px rgba(187, 134, 252, 0.7);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(187, 134, 252, 0.4);
+      }
     }
   </style>
 </head>
@@ -121,37 +185,30 @@
     Your browser does not support the video tag.
   </video>
 
-  <div class="overlay">
-    <div class="navbar">
-      <img src="logo.png" alt="KleineLars Logo">
-      <div class="nav-links">
-        <a href="https://donate.stripe.com/28ocO87WL03456UaEH" target="_blank">Donate</a>
-        <a href="https://discord.com" target="_blank">Discord</a>
-        <a href="https://www.youtube.com/@Kleine_Lars" target="_blank">YouTube</a>
-      </div>
+  <div class="video-overlay"></div>
+
+  <div class="container">
+    <img src="logo.png" alt="KleineLars Logo" class="logo">
+    <h1>KleineLars Tools</h1>
+    <p>Hier vind je alle tools die je nodig hebt voor je schoolwerk!</p>
+
+    <div class="button-container">
+      <a href="https://github.com/KleineLars/Blooket-Cheat/tree/main" class="tool-button" target="_blank">Blooket Tool</a>
+      <a href="https://kleinelars.github.io/KLKahoot/" class="tool-button" target="_blank">Kahoot Tool</a>
+      <a href="https://github.com/KleineLars/quizlet" class="tool-button" target="_blank">Quizlet Tool</a>
     </div>
 
-    <main>
-      <h1 style="color: #bb86fc;">KleineLars Tools</h1>
-      <p class="description">
-        Quiz better. Get more points. All in your browser.
-      </p>
-
+    <div class="coming-soon">
+      <h2>Coming Soon</h2>
       <div class="button-container">
-        <a href="https://github.com/KleineLars/Blooket-Cheat/tree/main" class="tool-button" target="_blank">Blooket Tool</a>
-        <a href="https://kleinelars.github.io/KLKahoot/" class="tool-button" target="_blank">Kahoot Tool</a>
-        <a href="https://github.com/KleineLars/quizlet" class="tool-button" target="_blank">Quizlet Tool</a>
-        <a href="https://files.fm/f/ndsf2htjrk" class="tool-button" target="_blank">SEB Tool</a>
+        <span class="tool-button disabled" title="Deze tool is nog in ontwikkeling.">SEB Tool 🔒</span>
       </div>
+      <a href="https://files.fm/f/ndsf2htjrk" class="tool-button" target="_blank" style="margin-top: 20px;">SEB Tool (Download)</a>
+    </div>
 
-      <div class="slogan">
-        ⚡ Hack your knowledge. Powered by KleineLars!
-      </div>
-    </main>
-
-    <footer>
-      &copy; 2025 KleineLars. All rights reserved.
-    </footer>
+    <div class="slogan">
+      "KleineLars Tools - Voor een slimme en snelle schooltijd."
+    </div>
   </div>
 
 </body>
